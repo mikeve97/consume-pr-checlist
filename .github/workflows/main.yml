@@ -1,0 +1,14 @@
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  update-PR:
+    runs-on: ubuntu-latest
+    name: Update PR title and body to include work item number
+    steps:
+      - name: Update PR title and body
+        id: update-pr
+        uses: mikeve9/pr-checklist@v1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
