@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, edited, synchronize]
 
 jobs:
   update-PR:
@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: Update PR title and body
         id: update-pr
-        uses: mikeve9/pr-checklist@v1.1
+        uses: mikeve9/pr-checklist@v0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
