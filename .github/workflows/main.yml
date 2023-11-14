@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: Update PR title and body
         id: update-pr
-        uses: mikeve9/pr-checklist@v0.1
+        uses: mikeve97/pr-checklist@v0.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
