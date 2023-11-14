@@ -3,12 +3,23 @@ on:
     types: [opened, edited, synchronize]
 
 jobs:
-  update-PR:
+  update-pr:
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
     runs-on: ubuntu-latest
     name: Update PR title and body to include work item number
     steps:
       - name: Update PR title and body
         id: update-pr
-        uses: mikeve97/pr-checklist@v0.3
+        uses: mikeve97/pr-editor@v1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  checklist:
+    runs-on: ubuntu-latest
+    name: Update PR title and body to include work item number
+    steps:
+      - name: Update PR title and body
+        id: update-pr
+        uses: mikeve97/pr-checklist@v1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
